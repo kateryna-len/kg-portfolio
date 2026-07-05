@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "education": "Education",
+    "values": "Values",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": {
+      "first": "Kateryna",
+      "last": "Gabriiel"
+    },
+    "eyebrow": "Frontend Developer",
+    "bio": "I turn ideas, mockups, and complex business requirements into clear, beautiful interfaces. I work with React, Next.js, and TypeScript, with close attention to detail, speed, and user experience.",
+    "available": "Available for opportunities",
+    "location": "Ukraine · Remote",
+    "downloadCv": "Download CV",
+    "contactMe": "Contact Me",
+    "statsYears": "years of commercial experience",
+    "statsProjects": "projects delivered",
+    "statsTech": "technologies used"
+  },
+  "skills": {
+    "eyebrow": "What I Know",
+    "heading": "Skills & Technologies"
+  },
+  "experience": {
+    "eyebrow": "My Journey",
+    "heading": "Work Experience",
+    "present": "Present"
+  },
+  "projects": {
+    "eyebrow": "My Work",
+    "heading": "Portfolio & Projects",
+    "viewProject": "View Project",
+    "nda": "Details under NDA"
+  },
+  "education": {
+    "eyebrow": "Background",
+    "heading": "Education",
+    "coursesHeading": "Courses & Certifications"
+  },
+  "values": {
+    "eyebrow": "How I Work",
+    "heading": "Our Match",
+    "cta": "Let's Talk"
+  },
+  "contact": {
+    "eyebrow": "Get in Touch",
+    "heading": "Contact",
+    "subtext": "Open to new opportunities and collaborations. Feel free to reach out."
+  }
+}

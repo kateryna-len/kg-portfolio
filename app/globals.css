@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --color-primary: #2B5FCC;
+  --color-accent: #ff6a45;
+  --color-bg: #ffffff;
+  --color-surface: #f4f6fb;
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+}
+
+.dark {
+  --color-bg: #0d1b2e;
+  --color-surface: #162032;
+  --color-text: #e8eef8;
+  --color-muted: #8ca0be;
+  --color-border: #1e3a5f;
+  --color-accent: #ff8a63;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+button:not(:disabled),
+[role="button"],
+a,
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
+}
+
+@keyframes gradient-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes particle-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-140px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce-y {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-gradient-sweep {
+  background-size: 200% 200%;
+  animation: gradient-sweep 3.5s ease infinite alternate;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+.animate-particle-rise {
+  animation-name: particle-rise;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.animate-bounce-y {
+  animation: bounce-y 1.8s ease-in-out infinite;
 }
