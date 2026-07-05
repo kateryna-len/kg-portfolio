@@ -214,8 +214,8 @@ export function Hero({ t, contactT }: HeroProps) {
         >
           <motion.div
             className="relative"
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: -12 }}
+            transition={{ duration: 2.5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
             whileHover={{ rotateX: -6, rotateY: 8, scale: 1.03 }}
           >
             {/* Rotating gradient ring */}
