@@ -157,7 +157,7 @@ export function Hero({ t, contactT }: HeroProps) {
             <motion.a
               href="/cv.pdf"
               download="FE_GabriielK.pdf"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.96 }}
               animate={{
                 boxShadow: [
@@ -178,7 +178,7 @@ export function Hero({ t, contactT }: HeroProps) {
             <motion.button
               type="button"
               onClick={() => setContactOpen(true)}
-              whileHover={{ scale: 1.05, y: -2 }}
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.96 }}
               className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-6 py-2.5 sm:py-3 rounded-full border-2 border-[var(--color-muted)]/40 text-[var(--color-text)] text-xs sm:text-sm font-medium hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors whitespace-nowrap"
             >
