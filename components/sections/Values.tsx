@@ -117,9 +117,6 @@ export function Values({ lang, t, contactT }: ValuesProps) {
                 {t.cta}
                 <ArrowRight size={16} />
               </motion.button>
-              <p className="mt-3 text-xs text-[var(--color-muted)]">
-                {lang === "ua" ? "15 хвилин, без зобов'язань" : "15 minutes, no strings attached"}
-              </p>
             </FadeInSection>
           </div>
         </div>
