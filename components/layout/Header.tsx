@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 
 type NavLabels = {
@@ -53,7 +53,7 @@ export function Header({ lang, nav }: HeaderProps) {
   }
 
   return (
-    <header className="relative z-50 bg-[var(--color-bg)] transition-colors duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)] transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         <span className="text-base sm:text-lg font-bold text-[var(--color-primary)] tracking-tight select-none">
           KG
@@ -101,24 +101,33 @@ export function Header({ lang, nav }: HeaderProps) {
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-[var(--color-bg)]">
-          <nav className="h-full flex flex-col items-center justify-center gap-2">
-            {navIds.map((id, i) => (
-              <motion.button
-                key={id}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05, duration: 0.25 }}
-                onClick={() => scrollTo(id)}
-                className="text-2xl font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors py-3"
-              >
-                {nav[id]}
-              </motion.button>
-            ))}
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden fixed inset-x-0 top-14 sm:top-16 bottom-0 z-40 bg-[var(--color-bg)]"
+          >
+            <nav className="h-full flex flex-col items-center justify-center gap-2">
+              {navIds.map((id, i) => (
+                <motion.button
+                  key={id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 12 }}
+                  transition={{ delay: i * 0.05, duration: 0.2 }}
+                  onClick={() => scrollTo(id)}
+                  className="text-2xl font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors py-3"
+                >
+                  {nav[id]}
+                </motion.button>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
