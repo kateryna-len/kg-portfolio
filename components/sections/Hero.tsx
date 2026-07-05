@@ -153,7 +153,7 @@ export function Hero({ t, contactT }: HeroProps) {
           </motion.p>
 
           {/* CTA buttons */}
-          <motion.div {...fadeUp(0.28)} className="flex flex-wrap items-center gap-3 mb-10">
+          <motion.div {...fadeUp(0.28)} className="flex flex-nowrap items-center gap-2 sm:gap-3 mb-10">
             <motion.a
               href="/cv.pdf"
               download="FE_GabriielK.pdf"
@@ -170,9 +170,9 @@ export function Hero({ t, contactT }: HeroProps) {
                 boxShadow: { duration: 2.4, repeat: Infinity, ease: "easeInOut" },
                 scale: { type: "spring", stiffness: 400, damping: 15 },
               }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold hover:opacity-90"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[var(--color-primary)] text-white text-xs sm:text-sm font-semibold hover:opacity-90 whitespace-nowrap"
             >
-              <Download size={15} />
+              <Download size={15} className="hidden sm:inline" />
               {t.downloadCv}
             </motion.a>
             <motion.button
@@ -180,9 +180,9 @@ export function Hero({ t, contactT }: HeroProps) {
               onClick={() => setContactOpen(true)}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-text)] text-sm font-medium hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-6 py-2.5 sm:py-3 rounded-full border-2 border-[var(--color-muted)]/40 text-[var(--color-text)] text-xs sm:text-sm font-medium hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors whitespace-nowrap"
             >
-              <Mail size={15} />
+              <Mail size={15} className="hidden sm:inline" />
               {t.contactMe}
             </motion.button>
           </motion.div>
