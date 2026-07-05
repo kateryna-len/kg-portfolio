@@ -34,6 +34,11 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-geist-sans), Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section {
+  transition: background-color 0.3s ease;
 }
 
 button:not(:disabled),

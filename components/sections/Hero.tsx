@@ -54,7 +54,7 @@ export function Hero({ t, contactT }: HeroProps) {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 overflow-hidden"
+      className="relative min-h-[calc(100vh-3.5rem)] sm:min-h-[calc(100vh-4rem)] flex items-center pt-8 pb-16 px-4 sm:px-6 overflow-hidden"
     >
       {/* Background decoration */}
       <div className="pointer-events-none absolute inset-0 -z-10">
