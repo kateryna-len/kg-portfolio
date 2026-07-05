@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -113,32 +113,24 @@ export function Header({ lang, nav }: HeaderProps) {
         </div>
       </div>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-x-0 top-14 sm:top-16 bottom-0 z-40 bg-[var(--color-bg)]"
-          >
-            <nav className="h-full flex flex-col items-center justify-center gap-2">
-              {navIds.map((id, i) => (
-                <motion.button
-                  key={id}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.25 }}
-                  onClick={() => scrollTo(id)}
-                  className="text-2xl font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors py-3"
-                >
-                  {nav[id]}
-                </motion.button>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {menuOpen && (
+        <div className="md:hidden fixed inset-x-0 top-14 sm:top-16 bottom-0 z-40 bg-[var(--color-bg)]">
+          <nav className="h-full flex flex-col items-center justify-center gap-2">
+            {navIds.map((id, i) => (
+              <motion.button
+                key={id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.25 }}
+                onClick={() => scrollTo(id)}
+                className="text-2xl font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors py-3"
+              >
+                {nav[id]}
+              </motion.button>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
