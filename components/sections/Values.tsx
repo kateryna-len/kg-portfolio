@@ -96,7 +96,7 @@ export function Values({ lang, t, contactT }: ValuesProps) {
               <motion.button
                 type="button"
                 onClick={() => setContactOpen(true)}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.96 }}
                 animate={{
                   boxShadow: [
@@ -107,7 +107,6 @@ export function Values({ lang, t, contactT }: ValuesProps) {
                 }}
                 transition={{
                   boxShadow: { duration: 2.4, repeat: Infinity, ease: "easeInOut" },
-                  scale: { type: "spring", stiffness: 400, damping: 15 },
                 }}
                 className="relative inline-flex items-center gap-2 mt-10 px-7 py-3.5 rounded-full text-white text-sm font-semibold"
                 style={{
@@ -118,6 +117,9 @@ export function Values({ lang, t, contactT }: ValuesProps) {
                 {t.cta}
                 <ArrowRight size={16} />
               </motion.button>
+              <p className="mt-3 text-xs text-[var(--color-muted)]">
+                {lang === "ua" ? "15 хвилин, без зобов'язань" : "15 minutes, no strings attached"}
+              </p>
             </FadeInSection>
           </div>
         </div>
